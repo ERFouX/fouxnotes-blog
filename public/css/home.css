@@ -1,0 +1,149 @@
+:root {
+  --bdr1: #1B1A55 solid 1px; /* رنگ مرز */
+  --bdr2: #535C91 solid 2px; /* رنگ مرز */
+}
+
+* {
+  box-sizing: border-box;
+  font-family: "Courier New", Courier, monospace;
+}
+
+body {
+  height: auto;
+  width: auto;
+  margin: 0;
+  overflow-x: hidden;
+  padding: 1rem;
+  background: #070F2B; /* پس‌زمینه تاریک */
+  color: #EAEAEA; /* رنگ متن روشن */
+}
+
+.sb {
+  margin: 0;
+  padding: 0;
+  width: 200px;
+  background-color: #1B1A55; /* پس‌زمینه سایدبار */
+  border: var(--bdr2);
+  position: fixed;
+  height: 100%;
+  overflow: auto;
+}
+
+.sb a {
+  display: block;
+  color: #EAEAEA; /* رنگ لینک */
+  padding: 16px;
+  text-decoration: none;
+}
+
+.sb a.sb-active {
+  background-color: #535C91; /* پس‌زمینه لینک فعال */
+  color: #FFFFFF; /* رنگ متن لینک فعال */
+}
+
+.sb a:hover:not(.sb-active) {
+  background-color: rgba(255, 255, 255, 0.1); /* پس‌زمینه لینک‌ها در حالت هاور */
+  color: #FFFFFF; /* رنگ متن لینک‌ها در حالت هاور */
+}
+
+div.sb-container {
+  margin-left: 200px;
+  padding: 1px 16px;
+  height: 1000px;
+}
+
+@media screen and (max-width: 600px) {
+  .sb {
+      width: 100%;
+      height: auto;
+      position: relative;
+  }
+  .sb a {
+      float: left;
+  }
+  div.sb-container {
+      margin-left: 0;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .sb a {
+      text-align: center;
+      float: none;
+  }
+}
+
+/* blog-header/Blog Title */
+.blog-header {
+  margin-top: 1rem;
+  padding: 30px;
+  font-size: 40px;
+  text-align: center;
+  border: var(--bdr2);
+  background: #535C91; /* پس‌زمینه هدر */
+  color: #FFFFFF; /* رنگ متن هدر */
+}
+
+/* Create two unequal columns that floats next to each other */
+/* Left column */
+.blog-left {
+  float: left;
+  width: 75%;
+}
+
+/* Right column */
+.blog-right {
+  float: left;
+  width: 25%;
+  padding-left: 1rem;
+}
+
+/* Fake image */
+.blog-fake-img {
+  border: var(--bdr1);
+  background-color: #444; /* پس‌زمینه تصویر جعلی */
+  width: 100%;
+  padding: 1rem;
+}
+
+/* Add a card effect for articles */
+.blog-card {
+  border: var(--bdr2);
+  background-color: #1B1A55; /* پس‌زمینه کارت */
+  padding: 1rem;
+  margin-top: 1rem;
+  color: #EAEAEA; /* رنگ متن کارت */
+}
+
+/* Clear floats after the columns */
+.blog-container:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* Responsive layout - when the screen is less than 800px wide, make the two columns stack on top of each other instead of next to each other */
+@media screen and (max-width: 800px) {
+  .blog-left,
+  .blog-right {
+      width: 100%;
+      padding: 0;
+  }
+}
+
+.fa {
+  padding: 1rem;
+  font-size: 30px;
+  width: 50px;
+  text-align: center;
+  text-decoration: none;
+  margin: 5px 2px;
+  text-shadow: -1px 0 #000, 0 1px #000, 1px 0 #000, 0 -1px #000;
+  color: #EAEAEA; /* رنگ آیکون‌ها */
+}
+
+.fa:hover {
+  background-color: #535C91; /* پس‌زمینه آیکون‌ها در حالت هاور */
+  color: #FFFFFF; /* رنگ آیکون‌ها در حالت هاور */
+}
+  
