@@ -1,0 +1,69 @@
+:root {
+  --bdr1: #1B1A55 solid 1px; /* رنگ مرز */
+  --bdr2: #535C91 solid 2px; /* رنگ مرز */
+  --baseColor: #606468; /* رنگ پایه */
+  --iconFill: var(--baseColor);
+  --htmlFontSize: 100%;
+  --bodyBackgroundColor: #070F2B; /* پس‌زمینه تاریک */
+  --bodyColor: #EAEAEA; /* رنگ متن روشن */
+  --bodyFontFamily: "Courier New", Courier, monospace;
+  --bodyFontFamilyFallback: sans-serif;
+  --bodyFontSize: 0.875rem;
+  --bodyFontWeight: 400;
+  --bodyLineHeight: 1.5;
+  --anchorColor: #eee;
+  --formGap: 0.875rem;
+  --loginBorderRadus: 0.25rem;
+  --loginColor: #eee;
+  --loginInputBackgroundColor: #4A4E69; /* رنگ پس‌زمینه ورودی */
+  --loginInputHoverBackgroundColor: #6C7A93; /* رنگ پس‌زمینه ورودی در حالت هاور */
+  --loginLabelBackgroundColor: #4A4E69; /* رنگ پس‌زمینه برچسب */  
+  --loginSubmitBackgroundColor: #ea4c88;
+  --loginSubmitColor: #eee;
+  --loginSubmitHoverBackgroundColor: #d44179;
+}
+
+.login {
+  color: var(--loginColor);
+}
+
+.login label,
+.login input[type="text"],
+.login input[type="password"],
+.login input[type="submit"] {
+  border-radius: var(--loginBorderRadus);
+  padding: 1rem;
+}
+
+.login label {
+  background-color: var(--loginLabelBackgroundColor);
+  border-bottom-right-radius: 0;
+  border-top-right-radius: 0;
+  padding-inline: 1.25rem;
+}
+
+.login input[type="password"],
+.login input[type="text"] {
+  background-color: var(--loginInputBackgroundColor);
+  border-bottom-left-radius: 0;
+  border-top-left-radius: 0;
+}
+
+.login input[type="password"]:focus,
+.login input[type="password"]:hover,
+.login input[type="text"]:focus,
+.login input[type="text"]:hover {
+  background-color: var(--loginInputHoverBackgroundColor);
+}
+
+.login input[type="submit"] {
+  background-color: var(--loginSubmitBackgroundColor);
+  color: var(--loginSubmitColor);
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.login input[type="submit"]:focus,
+.login input[type="submit"]:hover {
+  background-color: var(--loginSubmitHoverBackgroundColor);
+}
