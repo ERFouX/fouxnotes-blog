@@ -225,7 +225,9 @@ a:hover {
 }
 
 .notfound{
-  padding: 12% 1rem;
+  padding: 11.5rem 1rem;
   display: grid;
   place-items: center;
 }
+
+
