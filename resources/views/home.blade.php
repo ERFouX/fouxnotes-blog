@@ -6,7 +6,7 @@
     <!-- Add icon library -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
     <!-- Add StyleSheet -->
-    <link rel="stylesheet" href="{{ asset('../css/home.css') }}">
+    <link rel="stylesheet" href="{{ asset('../css/main.css') }}">
     <title>FouX Notes</title>
 </head>
 <body>
@@ -62,14 +62,14 @@
         </div>
 
         <!--Social Media-->
-        <div class="blog-card">
+        <div class="blog-card" id="social-media">
             <h3>Follow Me</h3>
 
             <!-- Add font awesome icons -->
             <a href="https://instagram.com/ERFouX" class="fa fa-instagram"></a>
             <a href="https://linkedin.com/in/ERFouX" class="fa fa-linkedin"></a>
             <a href="https://twitter.com/ERFouX" class="fa fa-twitter"></a>
-            <a href="https://youtube.com/c/ERFouX" class="fa fa-youtube"></a>
+            <a href="https://youtube.com/c/ERFouX" class="fa fa-youtube"></a>   
         </div>
         </div>
     </div>
