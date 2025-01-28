@@ -13,6 +13,8 @@ Route::post('/login', [AuthController::class, 'login'])->name('login.submit');
 Route::view('/register', 'register')->name('register');
 Route::post('/register', [AuthController::class, 'register'])->name('register.submit');
 
+Route::view('/about', 'about')->name('about');
+
 
 
 
