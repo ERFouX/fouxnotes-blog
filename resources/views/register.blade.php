@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
-    <link rel="stylesheet" href="{{ asset('../css/home.css') }}">
+    <link rel="stylesheet" href="{{ asset('../css/main.css') }}">
     <link rel="stylesheet" href="{{ asset('../css/login.css') }}">
     <title>Login/Register</title>
 </head>
@@ -22,8 +22,7 @@
         </div>
 
         <div class="blog-container">
-            <div class="blog-left">
-                <div class="blog-card">
+                <div class="login-card register-padding">
                     <h2>Register</h2>
                     <form action="{{ route('login') }}" method="POST" class="form login">
                         @csrf
@@ -55,11 +54,10 @@
                             <input type="submit" value="Sign In">
                         </div>
                     </form>
-                    <p class="text--center">Not a member? <a href="#register">Sign up now</a> <svg class="icon">
+                    <p class="text--center">Are you a member? <a href="{{ route('login') }}">Sign In now</a> <svg class="icon">
                         <use xlink:href="#icon-arrow-right"></use>
                     </svg></p>
                 </div>
-            </div>
         </div>
 
         <div class="footer">
