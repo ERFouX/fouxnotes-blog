@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
-    <link rel="stylesheet" href="{{ asset('../css/home.css') }}">
+    <link rel="stylesheet" href="{{ asset('../css/main.css') }}">
     <link rel="stylesheet" href="{{ asset('../css/login.css') }}">
     <title>Login/Register</title>
 </head>
@@ -12,8 +12,9 @@
 <body>
 
     <div class="sb">
-    <a class="sb-active" href="{{ route('login') }}">Login</a>
-    <a href="{{ route('register') }}">Register</a>
+        <a href="{{ route('home') }}">Home</a>
+        <a class="sb-active" href="{{ route('login') }}">Login</a>
+        <a href="{{ route('register') }}">Register</a>
     </div>
 
     <div class="sb-container">
@@ -22,34 +23,42 @@
         </div>
 
         <div class="blog-container">
-                <div class="blog-card">
-                    <h2>Login</h2>
-                    <form action="{{ route('login') }}" method="POST" class="form login">
-                        @csrf
-                        <div class="form__field">
-                            <label for="login__username"><svg class="icon">
+            <div class="login-card login-padding">
+                <h2>Login</h2>
+                <form action="{{ route('login') }}" method="POST" class="form login">
+                    @csrf
+                    <div class="form__field">
+                        <label for="login__username">
+                            <svg class="icon">
                                 <use xlink:href="#icon-user"></use>
-                            </svg><span class="hidden">Username</span></label>
-                            <input autocomplete="username" id="login__username" type="text" name="username" class="form__input" placeholder="Username" required>
-                        </div>
+                            </svg>
+                            <span class="hidden">Username</span>
+                        </label>
+                        <input autocomplete="username" id="login__username" type="text" name="username" class="form__input" placeholder="Username" required>
+                    </div>
 
-                        <div class="form__field">
-                            <label for="login__password"><svg class="icon">
+                    <div class="form__field">
+                        <label for="login__password">
+                            <svg class="icon">
                                 <use xlink:href="#icon-lock"></use>
-                            </svg><span class="hidden">Password</span></label>
-                            <input id="login__password" type="password" name="password" class="form__input" placeholder="Password" required>
-                        </div>
+                            </svg>
+                            <span class="hidden">Password</span>
+                        </label>
+                        <input id="login__password" type="password" name="password" class="form__input" placeholder="Password" required>
+                    </div>
 
-                        <div class="form__field">
-                            <input type="submit" value="Sign In">
-                        </div>
-                    </form>
-                    <p class="text--center">Not a member? <a href="#register">Sign up now</a> <svg class="icon">
+                    <div class="form__field">
+                        <input type="submit" value="Sign In">
+                    </div>
+                </form>
+
+                <p class="text--center">Not a member? <a href="{{ route('register') }}">Sign up now</a>
+                    <svg class="icon">
                         <use xlink:href="#icon-arrow-right"></use>
-                    </svg></p>
-                </div>
+                    </svg>
+                </p>
+            </div>
         </div>
-
         <div class="footer">
             <h2>Footer</h2>
             <p>This was inspired by W3 Schools.</p>
