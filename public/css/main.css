@@ -220,6 +220,10 @@ a:hover {
   text-decoration: underline;
 }
 
+#social-media{
+  padding-bottom: 40px;
+}
+
 .notfound{
   padding: 12% 1rem;
   display: grid;
