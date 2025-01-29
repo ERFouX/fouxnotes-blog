@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\DashboardController;
 
 Route::get('/', function () {
     return view('home', ['active' => 'home']);
@@ -19,11 +20,7 @@ Route::get('/about', function () {
     return view('about', ['active' => 'about']);
 })->name('about');
 
-Route::get('/create-post', function () {
-    return view('create_    post', ['active' => 'create-post']);
-})->name('create.post')->middleware('auth');
-
-
+Route::resource('dashboard', DashboardController::class)->middleware('auth');
 
 Route::fallback(function() {
     return view('notfound', ['active' => '404']);
