@@ -1,10 +1,10 @@
 @extends('layout')
 
-@section('title', 'FouX Notes | Login')
-
 @section('additional-css')
     <link rel="stylesheet" href="{{ asset('../css/login.css') }}">
 @endsection
+
+@section('title', 'FouX Notes | Login')
 
 @section('content')
     <div class="blog-header">
