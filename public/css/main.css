@@ -241,14 +241,14 @@ a:hover {
 }
 
 .alert-success {
-  background-color: #d4edda;
-  color: #155724;
+  background-color: #155724;
+  color: #c3e6cb;
   border: 1px solid #c3e6cb;
 }
 
 .alert-danger {
-  background-color: #f8d7da;
-  color: #721c24;
+  background-color: #721c24;
+  color: #f5c6cb;
   border: 1px solid #f5c6cb;
 }
 
@@ -264,7 +264,7 @@ a:hover {
 }
 
 .notfound{
-  padding: 11.5rem 1rem;
+  padding: 10.5rem 1rem;
   display: grid;
   place-items: center;
 }
