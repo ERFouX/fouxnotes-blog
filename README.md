@@ -58,7 +58,6 @@ Visit `localhost:8000` or `127.0.0.1:8000` in your browser to see the applicatio
 
 ## Contributing
 (Not yet complete)
-Thank you for considering contributing to the FouxNotes Blog! Please read the [contribution guide](CONTRIBUTING.md) for details on how to contribute.
 
 ## License
 
