@@ -4,24 +4,27 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
 
 Route::get('/', function () {
-    return view('home');
+    return view('home', ['active' => 'home']);
 })->name('home');
 
-Route::view('/login', 'login')->name('login');
+Route::get('/login', [AuthController::class, 'showLoginForm'])->name('login');
 Route::post('/login', [AuthController::class, 'login'])->name('login.submit');
 
-Route::view('/register', 'register')->name('register');
+Route::get('/register', [AuthController::class, 'showRegisterForm'])->name('register');
 Route::post('/register', [AuthController::class, 'register'])->name('register.submit');
 
-Route::view('/about', 'about')->name('about');
+Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
+
+Route::get('/about', function () {
+    return view('about', ['active' => 'about']);
+})->name('about');
+
+Route::get('/create-post', function () {
+    return view('create_    post', ['active' => 'create-post']);
+})->name('create.post')->middleware('auth');
 
 
 
-
-
-
-
-
-
-
-Route::fallback(function(){ return view('notfound'); });
+Route::fallback(function() {
+    return view('notfound', ['active' => '404']);
+});
