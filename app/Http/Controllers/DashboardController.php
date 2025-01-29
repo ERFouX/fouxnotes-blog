@@ -10,7 +10,8 @@ class DashboardController extends Controller
     public function index()
     {
         $posts = Post::all();
-        return view('dashboard.index', compact('posts')); // نمایش لیست پست‌ها
+        $active = 'dashboard';
+        return view('dashboard.index', compact('posts', 'active'));
     }
 
     public function create()
