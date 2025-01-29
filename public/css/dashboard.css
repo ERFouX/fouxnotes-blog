@@ -1,0 +1,53 @@
+.dashboard-left {
+    float: left;
+    width: 25%;
+    padding-right: 1rem;
+  }
+  
+  /* Right column */
+  .dashboard-right {
+    float: left;
+    width: 75%;
+  }
+
+  .dashboard-container {
+    display: flex;
+    margin-top: 20px;
+}
+
+.dashboard-left {
+    width: 75%;
+    padding-right: 1rem;
+}
+
+.dashboard-right {
+    width: 25%;
+}
+
+.dashboard-widget {
+    background-color: #1B1A55;
+    border: var(--bdr2);
+    padding: 1rem;
+    margin-bottom: 1rem;
+    color: var(--bodyColor);
+}
+
+.dashboard-widget h3 {
+    margin: 0 0 10px;
+}
+
+.dashboard-widget p {
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+.dashboard-widget ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.dashboard-widget ul li {
+    margin-bottom: 5px;
+}
+
+  
