@@ -20,7 +20,14 @@
     @endguest
 
     @auth
-        <a class="{{ $active === 'create-post' ? 'sb-active' : '' }}" href="{{ route('create.post') }}">Create Post</a>
+        <a class="{{ $active === 'dashboard' ? 'sb-active' : '' }}" href="{{ route('dashboard') }}">Dashboard</a>
+        
+        <!-- Only show these links when on the dashboard -->
+        @if ($active === 'dashboard')
+            <a class="{{ $active === 'posts' ? 'sb-active' : '' }}" href="{{ route('posts.index') }}">Posts</a>
+            <a class="{{ $active === 'categories' ? 'sb-active' : '' }}" href="{{ route('categories.index') }}">Categories</a>
+            <a class="{{ $active === 'settings' ? 'sb-active' : '' }}" href="{{ route('settings.index') }}">Settings</a>
+        @endif
     @endauth
 
     <a class="{{ $active === 'about' ? 'sb-active' : '' }}" href="{{ route('about') }}">About</a>
@@ -34,19 +41,18 @@
     @endauth
 </div>
 
-
-
-    <script>
-        function confirmLogout() {
-            if (confirm("Are you sure you want to log out?")) {
-                document.querySelector('form#logout-form').submit();
-            }
+<script>
+    function confirmLogout() {
+        if (confirm("Are you sure you want to log out?")) {
+            document.querySelector('form#logout-form').submit();
         }
-    </script>
+    }
+</script>
 
-    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-        @csrf
-    </form>
+<form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+    @csrf
+</form>
+
 
 <div class="sb-container">
 <!-- Alerts -->
