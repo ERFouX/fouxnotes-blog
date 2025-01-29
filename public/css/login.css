@@ -1,11 +1,11 @@
 :root {
-  --bdr1: #1B1A55 solid 1px; /* رنگ مرز */
-  --bdr2: #535C91 solid 2px; /* رنگ مرز */
-  --baseColor: #606468; /* رنگ پایه */
+  --bdr1: #1B1A55 solid 1px;
+  --bdr2: #535C91 solid 2px;
+  --baseColor: #606468;
   --iconFill: var(--baseColor);
   --htmlFontSize: 100%;
-  --bodyBackgroundColor: #070F2B; /* پس‌زمینه تاریک */
-  --bodyColor: #EAEAEA; /* رنگ متن روشن */
+  --bodyBackgroundColor: #070F2B;
+  --bodyColor: #EAEAEA;
   --bodyFontFamily: "Courier New", Courier, monospace;
   --bodyFontFamilyFallback: sans-serif;
   --bodyFontSize: 0.875rem;
@@ -15,9 +15,9 @@
   --formGap: 0.875rem;
   --loginBorderRadus: 0.25rem;
   --loginColor: #eee;
-  --loginInputBackgroundColor: #4A4E69; /* رنگ پس‌زمینه ورودی */
-  --loginInputHoverBackgroundColor: #6C7A93; /* رنگ پس‌زمینه ورودی در حالت هاور */
-  --loginLabelBackgroundColor: #4A4E69; /* رنگ پس‌زمینه برچسب */  
+  --loginInputBackgroundColor: #4A4E69;
+  --loginInputHoverBackgroundColor: #6C7A93;
+  --loginLabelBackgroundColor: #4A4E69;
   --loginSubmitBackgroundColor: #535C91;
   --loginSubmitColor: #eee;
   --loginSubmitHoverBackgroundColor: #4a558f;
@@ -69,21 +69,21 @@
 }
 
 .login-card {
-  border: var(--bdr2); /* حاشیه */
-  background-color: #1B1A55; /* رنگ پس‌زمینه کارت */
-  margin-top: 1rem; /* فاصله از بالا */
-  color: var(--bodyColor); /* رنگ متن */
-  display: grid; /* استفاده از grid */
-  place-items: center; /* مرکز کردن محتوا */
-  width: 100%; /* عرض کامل */
+  border: var(--bdr2); 
+  background-color: #1B1A55;
+  margin-top: 1rem;
+  color: var(--bodyColor);
+  display: grid;
+  place-items: center;
+  width: 100%;
 }
 
 .login-padding{
-  padding: 6.2rem 1rem;
+  padding: 4.4rem 1rem;
 }
 
 .register-padding{
-  padding: 4rem 1rem;
+  padding: 2rem 1rem;
 }
 
 /* form.css */
@@ -117,7 +117,7 @@ input[type="submit"] {
 .form__field {
   display: flex; 
   width: 70%;
-  max-width: 450px; 
+  max-width: 430px; 
   margin: 0 auto; /* مرکز کردن فیلدها */
 }
 
