@@ -27,7 +27,7 @@ class DashboardController extends Controller
         ]);
 
         Post::create($request->all());
-        return redirect()->route('dashboard.index')->with('success', 'Post created successfully.');
+        return redirect()->route('dashboard.index')->with('successful', 'Post created successfully.');
     }
 
     public function show($id)
@@ -51,13 +51,13 @@ class DashboardController extends Controller
 
         $post = Post::findOrFail($id);
         $post->update($request->all());
-        return redirect()->route('dashboard.index')->with('success', 'Post updated successfully.');
+        return redirect()->route('dashboard.index')->with('successful', 'Post updated successfully.');
     }
 
     public function destroy($id)
     {
         $post = Post::findOrFail($id);
         $post->delete();
-        return redirect()->route('dashboard.index')->with('success', 'Post deleted successfully.');
+        return redirect()->route('dashboard.index')->with('successful', 'Post deleted successfully.');
     }
 }
