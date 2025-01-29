@@ -5,9 +5,8 @@ Fouxnotes Blog is a web application built with Laravel, providing a platform for
 ## Features
 
 - User authentication and authorization
-- Create, edit, and delete blog posts
-- Commenting system
-- Tagging and categorization
+- Create, edit, and delete blog posts (Not yet complete)
+- Tagging and categorization (Not yet complete)
 - Responsive design
 
 ## Getting Started
@@ -19,7 +18,6 @@ Follow these instructions to set up and run the Fouxnotes Blog on your local mac
 - PHP >= 7.3
 - Composer
 - MySQL or any other supported database
-- Node.js & npm
 
 ### Installation
 
@@ -34,34 +32,19 @@ Follow these instructions to set up and run the Fouxnotes Blog on your local mac
     composer install
     ```
 
-3. Install JavaScript dependencies:
-    ```sh
-    npm install
-    ```
-
-4. Copy the `.env.example` file to `.env` and configure your environment variables:
+3. Copy the `.env.example` file to `.env` and configure your environment variables:
     ```sh
     cp .env.example .env
     ```
 
-5. Generate an application key:
+4. Generate an application key:
     ```sh
     php artisan key:generate
     ```
 
-6. Run the database migrations:
+5. Run the database migrations:
     ```sh
     php artisan migrate
-    ```
-
-7. Seed the database with initial data (optional):
-    ```sh
-    php artisan db:seed
-    ```
-
-8. Build the front-end assets:
-    ```sh
-    npm run dev
     ```
 
 ### Running the Application
@@ -71,11 +54,11 @@ Start the local development server:
 php artisan serve
 ```
 
-Visit `http://localhost:8000` in your browser to see the application in action.
+Visit `localhost:8000` or `127.0.0.1:8000` in your browser to see the application in action.
 
 ## Contributing
-
-Thank you for considering contributing to the Fouxnotes Blog! Please read the [contribution guide](CONTRIBUTING.md) for details on how to contribute.
+(Not yet complete)
+Thank you for considering contributing to the FouxNotes Blog! Please read the [contribution guide](CONTRIBUTING.md) for details on how to contribute.
 
 ## License
 
