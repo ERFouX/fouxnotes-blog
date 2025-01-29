@@ -7,39 +7,45 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 use App\Models\User;
-use App\Http\Controllers\Controller;
-
 
 class AuthController extends Controller
 {
     // Login
+    public function showLoginForm()
+    {
+        return view('login')->with('active', 'login');
+    }
+
     public function login(Request $request)
     {
         $request->validate([
-            'email' => 'required|email',
+            'username_or_email' => 'required',
             'password' => 'required',
         ]);
-
-        if (Auth::attempt(['email' => $request->email, 'password' => $request->password])) {
-            return redirect()->intended('home');
+    
+        $field = filter_var($request->username_or_email, FILTER_VALIDATE_EMAIL) ? 'email' : 'username';
+    
+        if (Auth::attempt([$field => $request->username_or_email, 'password' => $request->password])) {
+            return redirect()->route('home')->with('successful', 'Welcome! You have successfully logged in');
         }
-
+    
         return back()->withErrors([
-            'email' => 'The provided credentials do not match our records.',
-        ]);
+            'username_or_email' => 'Oh! Your credentials are living in another dimension. Please try again!',
+        ])->withInput();
     }
+    
+    
 
-    public function logout()
+    // Register
+    public function showRegisterForm()
     {
-        Auth::logout();
-        return redirect('/login');
+        return view('register')->with('active', 'register');
     }
 
-    // Register 
     public function register(Request $request)
     {
         $validator = Validator::make($request->all(), [
-            'name' => 'required|string|max:255',
+            'username' => 'required|string|max:255|unique:users',
             'email' => 'required|string|email|max:255|unique:users',
             'password' => 'required|string|min:8|confirmed',
         ]);
@@ -49,17 +55,21 @@ class AuthController extends Controller
         }
 
         $user = User::create([
-            'name' => $request->name,
+            'username' => $request->username,
             'email' => $request->email,
             'password' => Hash::make($request->password),
         ]);
 
-        if (Auth::attempt(['email' => $request->email, 'password' => $request->password])) {
-            return redirect()->intended('home');
-        }
-
-        return back()->withErrors([
-            'email' => 'Failed to log in after registration.',
-        ]);
+        Auth::login($user); 
+        return redirect()->route('home')->with('successful', 'Welcome! Your account was successfully created');
     }
+
+    // Logout
+    public function logout()
+    {
+        
+        Auth::logout();
+        return redirect()->route('login')->with('logged_out', 'You are logged out!');
+    }
+    
 }
