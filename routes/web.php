@@ -3,6 +3,9 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\PostController; // فرض بر این است که این کنترلر را دارید
+use App\Http\Controllers\CategoryController; // فرض بر این است که این کنترلر را دارید
+use App\Http\Controllers\SettingsController; // فرض بر این است که این کنترلر را دارید
 
 Route::get('/', function () {
     return view('home', ['active' => 'home']);
@@ -20,7 +23,19 @@ Route::get('/about', function () {
     return view('about', ['active' => 'about']);
 })->name('about');
 
-Route::resource('dashboard', DashboardController::class)->middleware('auth');
+// Dashboard Routes
+Route::get('/dashboard', [DashboardController::class, 'index'])->middleware('auth')->name('dashboard');
+
+// Posts Routes
+Route::resource('posts', PostController::class)->middleware('auth');
+
+// Categories Routes
+Route::resource('categories', CategoryController::class)->middleware('auth');
+
+// Settings Routes
+Route::get('/settings', [SettingsController::class, 'index'])->middleware('auth')->name('settings.index');
+Route::get('/settings/edit', [SettingsController::class, 'edit'])->middleware('auth')->name('settings.edit');
+Route::post('/settings/update', [SettingsController::class, 'update'])->middleware('auth')->name('settings.update');
 
 Route::fallback(function() {
     return view('notfound', ['active' => '404']);
