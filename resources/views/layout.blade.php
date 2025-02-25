@@ -36,7 +36,7 @@
     
     @auth
         <button class="logout-button" onclick="confirmLogout()">
-            Logout
+            Logout ({{ Auth::user()->username }})
         </button>
     @endauth
 </div>
@@ -57,8 +57,8 @@
 <div class="sb-container">
 <!-- Alerts -->
 @if (session('successful'))
-    <div class="alert alert-success">
-        {{ session('successful') }}
+<div class="alert alert-success">
+        {{ session('successful') }} <b>{{ Auth::user()->username }}</b>
     </div>
 @endif
 
@@ -78,7 +78,6 @@
     </div>
 @endif
 <!---->
-
 
     <!-- Page Content -->
     @yield('content')
