@@ -29,13 +29,13 @@ Route::get('/dashboard', [DashboardController::class, 'index'])->middleware('aut
 // Posts Routes
 Route::resource('posts', PostController::class)->middleware('auth');
 
-// Categories Routes
-Route::resource('categories', CategoryController::class)->middleware('auth');
+// // Categories Routes
+// Route::resource('categories', CategoryController::class)->middleware('auth');
 
-// Settings Routes
-Route::get('/settings', [SettingsController::class, 'index'])->middleware('auth')->name('settings.index');
-Route::get('/settings/edit', [SettingsController::class, 'edit'])->middleware('auth')->name('settings.edit');
-Route::post('/settings/update', [SettingsController::class, 'update'])->middleware('auth')->name('settings.update');
+// // Settings Routes
+// Route::get('/settings', [SettingsController::class, 'index'])->middleware('auth')->name('settings.index');
+// Route::get('/settings/edit', [SettingsController::class, 'edit'])->middleware('auth')->name('settings.edit');
+// Route::post('/settings/update', [SettingsController::class, 'update'])->middleware('auth')->name('settings.update');
 
 Route::fallback(function() {
     return view('notfound', ['active' => '404']);

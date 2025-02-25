@@ -34,7 +34,6 @@ class AuthController extends Controller
         ])->withInput();
     }
     
-    
 
     // Register
     public function showRegisterForm()
@@ -67,7 +66,6 @@ class AuthController extends Controller
     // Logout
     public function logout()
     {
-        
         Auth::logout();
         return redirect()->route('login')->with('logged_out', 'You are logged out!');
     }
