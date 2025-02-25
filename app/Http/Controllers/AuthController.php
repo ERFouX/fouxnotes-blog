@@ -62,12 +62,5 @@ class AuthController extends Controller
         Auth::login($user); 
         return redirect()->route('home')->with('successful', 'Welcome! Your account was successfully created');
     }
-
-    // Logout
-    public function logout()
-    {
-        Auth::logout();
-        return redirect()->route('login')->with('logged_out', 'You are logged out!');
-    }
     
 }

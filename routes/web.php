@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\PostController;
+use App\Http\Controllers\LogoutController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\SettingsController;
 
@@ -17,7 +18,7 @@ Route::post('/login', [AuthController::class, 'login'])->name('login.submit');
 Route::get('/register', [AuthController::class, 'showRegisterForm'])->name('register');
 Route::post('/register', [AuthController::class, 'register'])->name('register.submit');
 
-Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
+Route::post('/logout', LogoutController::class)->name('logout');
 
 Route::get('/about', function () {
     return view('about', ['active' => 'about']);
