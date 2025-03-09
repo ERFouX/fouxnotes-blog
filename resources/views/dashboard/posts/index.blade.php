@@ -10,50 +10,46 @@
 <div class="container mx-auto px-4 py-8">
     <div class="flex justify-between items-center mb-6">
         <h1 class="text-3xl font-bold">Posts</h1>
-        <a href="{{ route('posts.create') }}" class="bg-green-500 text-white px-4 py-2 rounded-md hover:bg-green-600">
+        <a href="{{ route('posts.create') }}" class="btn btn-primary">
             Create New Post
         </a>
     </div>
 
     @if($posts->count() > 0)
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div class="posts-container">
             @foreach($posts as $post)
-                <div class="bg-white rounded-lg shadow-md overflow-hidden">
+                <div class="post-card">
                     @if($post->banner)
-                        <img src="{{ $post->banner }}" alt="{{ $post->title }}" class="w-full h-48 object-cover">
+                        <img src="{{ asset($post->banner) }}" alt="{{ $post->title }}" class="post-card__image">
                     @else
-                        <div class="w-full h-48 bg-gray-200 flex items-center justify-center">
+                        <div class="post-card__image bg-gray-200 flex items-center justify-center">
                             <span class="text-gray-400">No Image</span>
                         </div>
                     @endif
                     
-                    <div class="p-4">
-                        <h2 class="text-xl font-semibold mb-2">{{ $post->title }}</h2>
-                        <p class="text-gray-600 text-sm mb-4">
+                    <div class="post-card__content">
+                        <h2 class="post-card__title">{{ $post->title }}</h2>
+                        <p class="post-card__excerpt">
                             {{ Str::limit($post->content, 100) }}
                         </p>
                         
-                        <div class="flex items-center text-sm text-gray-500 mb-4">
+                        <div class="post-card__meta">
                             <span>{{ $post->category }}</span>
-                            <span class="mx-2">•</span>
                             <span>{{ $post->date }}</span>
-                            <span class="mx-2">•</span>
-                            <span>Author: {{ $post->user ? $post->user->username : 'Deleted User' }}</span>
+                            <span>{{ $post->user ? $post->user->username : 'Deleted User' }}</span>
                         </div>
 
-                        <div class="flex justify-end space-x-2 space-x-reverse">
-                            <a href="{{ route('posts.show', $post->id) }}" class="text-blue-500 hover:text-blue-600">
+                        <div class="post-card__actions">
+                            <a href="{{ route('posts.show', $post->id) }}" class="view">
                                 View
                             </a>
-                            <span class="text-gray-300">|</span>
-                            <a href="{{ route('posts.edit', $post->id) }}" class="text-green-500 hover:text-green-600">
+                            <a href="{{ route('posts.edit', $post->id) }}" class="edit">
                                 Edit
                             </a>
-                            <span class="text-gray-300">|</span>
                             <form action="{{ route('posts.destroy', $post->id) }}" method="POST" class="inline">
                                 @csrf
                                 @method('DELETE')
-                                <button type="submit" class="text-red-500 hover:text-red-600"
+                                <button type="submit" class="delete"
                                         onclick="return confirm('Are you sure you want to delete this post?')">
                                     Delete
                                 </button>

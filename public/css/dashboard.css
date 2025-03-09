@@ -1,44 +1,36 @@
-.dashboard-left {
-    float: left;
-    width: 25%;
-    padding-right: 1rem;
-  }
-  
-  /* Right column */
-  .dashboard-right {
-    float: left;
-    width: 75%;
-  }
-
-  .dashboard-container {
+/* Dashboard Layout */
+.dashboard-container {
     display: flex;
     margin-top: 20px;
+    padding: 0 20px;
 }
 
 .dashboard-left {
-    width: 75%;
-    padding-right: 1rem;
+    width: 25%;
+    padding-right: 2rem;
 }
 
 .dashboard-right {
-    width: 25%;
+    width: 75%;
 }
 
+/* Dashboard Widgets */
 .dashboard-widget {
     background-color: #1B1A55;
-    border: var(--bdr2);
-    padding: 1rem;
-    margin-bottom: 1rem;
-    color: var(--bodyColor);
+    padding: 1.5rem;
+    margin-bottom: 1.5rem;
+    color: #ffffff;
 }
 
 .dashboard-widget h3 {
-    margin: 0 0 10px;
+    margin: 0 0 1rem;
+    font-size: 1.25rem;
+    font-weight: 600;
 }
 
 .dashboard-widget p {
-    font-size: 1.5rem;
-    font-weight: bold;
+    font-size: 1.125rem;
+    margin-bottom: 1rem;
 }
 
 .dashboard-widget ul {
@@ -47,15 +39,200 @@
 }
 
 .dashboard-widget ul li {
-    margin-bottom: 5px;
+    margin-bottom: 0.75rem;
+    padding-bottom: 0.75rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 }
 
-/*Posts*/
-.dashboard-posts-right{
-    width: 75%;
+.dashboard-widget ul li:last-child {
+    margin-bottom: 0;
+    padding-bottom: 0;
+    border-bottom: none;
 }
 
-.dashboard-posts-left{
-    width: 25%;
-    padding-right: 1rem;
+/* Posts Layout */
+.posts-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 1.5rem;
+    padding: 1.5rem;
+}
+
+.post-card {
+    background: #1B1A55;
+    overflow: hidden;
+    transition: transform 0.2s ease;
+}
+
+.post-card:hover {
+    transform: translateY(-4px);
+}
+
+.post-card__image {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+.post-card__content {
+    padding: 1.5rem;
+    color: #ffffff;
+}
+
+.post-card__title {
+    font-size: 1.25rem;
+    font-weight: 600;
+    margin-bottom: 0.75rem;
+    color: #ffffff;
+}
+
+.post-card__excerpt {
+    font-size: 0.875rem;
+    line-height: 1.5;
+    margin-bottom: 1rem;
+    color: rgba(255, 255, 255, 0.8);
+}
+
+.post-card__meta {
+    display: flex;
+    align-items: center;
+    font-size: 0.875rem;
+    color: rgba(255, 255, 255, 0.7);
+    margin-bottom: 1rem;
+}
+
+.post-card__meta span {
+    display: flex;
+    align-items: center;
+}
+
+.post-card__meta span:not(:last-child)::after {
+    content: "•";
+    margin: 0 0.5rem;
+    color: rgba(255, 255, 255, 0.4);
+}
+
+.post-card__actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 0.75rem;
+    padding-top: 1rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.post-card__actions a, 
+.post-card__actions button {
+    text-decoration: none;
+    padding: 0.5rem 1rem;
+    font-size: 0.875rem;
+    transition: opacity 0.2s ease;
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+.post-card__actions a.view {
+    color: #70A1FF;
+}
+
+.post-card__actions a.edit {
+    color: #7bed9f;
+}
+
+.post-card__actions .delete {
+    color: #ff6b81;
+}
+
+.post-card__actions a:hover,
+.post-card__actions button:hover {
+    opacity: 0.8;
+}
+
+/* Form Styles */
+.form-container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 2rem;
+    background: #1B1A55;
+    color: #ffffff;
+}
+
+.form-group {
+    margin-bottom: 1.5rem;
+}
+
+.form-label {
+    display: block;
+    font-size: 0.875rem;
+    font-weight: 500;
+    margin-bottom: 0.5rem;
+}
+
+.form-input {
+    width: 100%;
+    padding: 0.75rem;
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    color: #ffffff;
+    font-size: 1rem;
+    transition: border-color 0.2s ease;
+}
+
+.form-input:focus {
+    outline: none;
+    border-color: #70A1FF;
+}
+
+textarea.form-input {
+    min-height: 150px;
+    resize: vertical;
+}
+
+.form-help {
+    font-size: 0.875rem;
+    color: rgba(255, 255, 255, 0.7);
+    margin-top: 0.25rem;
+}
+
+/* Buttons */
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.75rem 1.5rem;
+    font-size: 0.875rem;
+    font-weight: 500;
+    text-decoration: none;
+    transition: opacity 0.2s ease;
+    cursor: pointer;
+    background: none;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    color: #ffffff;
+}
+
+.btn:hover {
+    opacity: 0.8;
+}
+
+.btn-primary {
+    background-color: #70A1FF;
+    border: none;
+}
+
+.btn-danger {
+    background-color: #ff6b81;
+    border: none;
+}
+
+/* Utilities */
+.text-center {
+    text-align: center;
+}
+
+.mb-4 {
+    margin-bottom: 1rem;
+}
+
+.mt-4 {
+    margin-top: 1rem;
 }
