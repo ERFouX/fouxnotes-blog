@@ -18,7 +18,7 @@ class PostController extends Controller
 
     public function index()
     {
-        $posts = Post::all();
+        $posts = Post::with('user')->get();
         return $this->setActive('dashboard.posts.index', compact('posts'));
     }
     
@@ -44,7 +44,7 @@ class PostController extends Controller
 
     public function show($id)
     {
-        $post = Post::findOrFail($id);
+        $post = Post::with('user')->findOrFail($id);
         return $this->setActive('dashboard.posts.show', compact('post'));
     }
 
