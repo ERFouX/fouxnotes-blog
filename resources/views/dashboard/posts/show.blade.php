@@ -31,7 +31,7 @@
             <span class="mx-2">|</span>
             <span>Date: {{ $post->date }}</span>
             <span class="mx-2">|</span>
-            <span>Author: {{ $post->user->name ?? 'Anonymous' }}</span>
+            <span>Author: {{ $post->user ? $post->user->username : 'Deleted User' }}</span>
         </div>
 
         <div class="prose prose-lg max-w-none">

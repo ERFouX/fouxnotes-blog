@@ -37,6 +37,8 @@
                             <span>{{ $post->category }}</span>
                             <span class="mx-2">•</span>
                             <span>{{ $post->date }}</span>
+                            <span class="mx-2">•</span>
+                            <span>Author: {{ $post->user ? $post->user->username : 'Deleted User' }}</span>
                         </div>
 
                         <div class="flex justify-end space-x-2 space-x-reverse">
