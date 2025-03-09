@@ -43,8 +43,8 @@ class PostController extends Controller
         if ($request->hasFile('banner')) {
             $banner = $request->file('banner');
             $filename = time() . '_' . $banner->getClientOriginalName();
-            $path = $banner->storeAs('public/banners', $filename);
-            $data['banner'] = Storage::url($path);
+            $path = $banner->storeAs('banners', $filename, 'public');
+            $data['banner'] = asset(Storage::url($path));
         }
 
         Post::create($data);
