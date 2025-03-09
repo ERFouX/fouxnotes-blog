@@ -14,11 +14,6 @@ class DashboardController extends Controller
         return view('dashboard.index', compact('posts', 'active'));
     }
 
-    public function create()
-    {
-        return view('dashboard.create');
-    }
-
     public function store(Request $request)
     {
         $request->validate([

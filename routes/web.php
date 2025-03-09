@@ -28,7 +28,10 @@ Route::get('/about', function () {
 Route::get('/dashboard', [DashboardController::class, 'index'])->middleware('auth')->name('dashboard');
 
 // Posts Routes
-Route::resource('posts', PostController::class)->middleware('auth');
+Route::middleware('auth')->group(function () {
+    Route::resource('posts', PostController::class);
+    // Route::get('posts', [PostController::class, 'index'])->name('posts.index');
+});
 
 // // Categories Routes
 // Route::resource('categories', CategoryController::class)->middleware('auth');
