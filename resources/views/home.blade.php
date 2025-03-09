@@ -2,6 +2,36 @@
 
 @section('title', 'FouX Notes')
 
+@section('additional-css')
+<style>
+.blog-img {
+    width: 100%;
+    height: 400px;
+    object-fit: cover;
+    border-radius: 4px;
+}
+
+.blog-fake-img {
+    width: 100%;
+    height: 200px;
+    background-color: #aaa;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    border-radius: 4px;
+}
+
+.popular-post-img {
+    width: 100%;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 4px;
+    margin-bottom: 10px;
+}
+</style>
+@endsection
+
 @section('content')
 <div class="blog-header">
     <h2>FouX Notes</h2>
@@ -9,19 +39,27 @@
 
 <div class="blog-container">
     <div class="blog-left">
-        <div class="blog-card">
-            <h2>TITLE HEADING</h2>
-            <h5>Title description, Dec 7, 2017</h5>
-            <div class="blog-fake-img" style="height: 200px">Image</div>
-            <p>Some text..</p>
-        </div>
-        <div class="blog-card">
-            <h2>TITLE HEADING</h2>
-            <h5>Title description, Sep 2, 2017</h5>
-            <div class="blog-fake-img" style="height: 200px">Image</div>
-            <p>Some text..</p>
-        </div>
+        @if($posts->count() > 0)
+            @foreach($posts as $post)
+                <div class="blog-card">
+                    <h2>{{ $post->title }}</h2>
+                    <h5>{{ $post->date instanceof \Carbon\Carbon ? $post->date->format('M d, Y') : $post->date }}</h5>
+                    @if($post->banner)
+                        <img src="{{ $post->banner }}" alt="{{ $post->title }}" class="blog-img">
+                    @else
+                        <div class="blog-fake-img">No Image</div>
+                    @endif
+                    <p>{{ Str::limit($post->content, 150) }}</p>
+                    <a href="{{ route('posts.show', $post->id) }}" class="blog-read-more">Read More</a>
+                </div>
+            @endforeach
+        @else
+            <div class="blog-card">
+                <p>No posts found.</p>
+            </div>
+        @endif
     </div>
+
     <div class="blog-right">
         <div class="blog-card">
             <h2>About Me</h2>
@@ -31,14 +69,25 @@
             </p>
         </div>
 
-        <!--Image Strips-->
+        <!--Popular Posts-->
         <div class="blog-card">
             <h3>Popular Post</h3>
-            <div class="blog-fake-img">Image</div>
-            <br />
-            <div class="blog-fake-img">Image</div>
-            <br />
-            <div class="blog-fake-img">Image</div>
+            @if(isset($popularPosts) && $popularPosts->count() > 0)
+                @foreach($popularPosts as $post)
+                    @if($post->banner)
+                        <img src="{{ $post->banner }}" alt="{{ $post->title }}" class="popular-post-img">
+                    @else
+                        <div class="blog-fake-img" style="height: 150px">No Image</div>
+                    @endif
+                    <h4 class="mb-4">{{ $post->title }}</h4>
+                @endforeach
+            @else
+                <div class="blog-fake-img">Image</div>
+                <br>
+                <div class="blog-fake-img">Image</div>
+                <br>
+                <div class="blog-fake-img">Image</div>
+            @endif
         </div>
 
         <!--Social Media-->
