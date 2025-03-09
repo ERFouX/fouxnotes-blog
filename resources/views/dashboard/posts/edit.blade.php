@@ -1,47 +1,58 @@
 @extends('layout')
 
+@section('additional-css')
+    <link rel="stylesheet" href="{{ asset('css/dashboard.css') }}">
+@endsection
+
+@section('title', 'FouX Notes | Edit Post')
+
 @section('content')
-<div class="container mx-auto px-4 py-8">
-    <div class="max-w-2xl mx-auto">
-        <h1 class="text-3xl font-bold mb-6">Edit Post</h1>
-
-        <form action="{{ route('posts.update', $post->id) }}" method="POST" class="space-y-6">
-            @csrf
-            @method('PUT')
-
-            <div>
-                <label for="title" class="block text-sm font-medium text-gray-700">Title</label>
-                <input type="text" name="title" id="title" value="{{ $post->title }}" required
-                    class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500">
-            </div>
-
-            <div>
-                <label for="category" class="block text-sm font-medium text-gray-700">Category</label>
-                <input type="text" name="category" id="category" value="{{ $post->category }}"
-                    class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500">
-            </div>
-
-            <div>
-                <label for="banner" class="block text-sm font-medium text-gray-700">Banner</label>
-                <input type="text" name="banner" id="banner" value="{{ $post->banner }}"
-                    class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500">
-            </div>
-
-            <div>
-                <label for="content" class="block text-sm font-medium text-gray-700">Content</label>
-                <textarea name="content" id="content" rows="10" required
-                    class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500">{{ $post->content }}</textarea>
-            </div>
-
-            <div class="flex justify-end space-x-4 space-x-reverse">
-                <a href="{{ route('posts.index') }}" class="bg-gray-500 text-white px-4 py-2 rounded-md hover:bg-gray-600">
-                    Cancel
-                </a>
-                <button type="submit" class="bg-blue-500 text-white px-4 py-2 rounded-md hover:bg-blue-600">
-                    Save Changes
-                </button>
-            </div>
-        </form>
+    <div class="blog-header">
+        <h2>Edit Post</h2>
     </div>
-</div>
+
+    <div class="blog-container">
+        <div class="form-container">
+            <form action="{{ route('posts.update', $post->id) }}" method="POST" enctype="multipart/form-data">
+                @csrf
+                @method('PUT')
+                
+                <div class="form-group">
+                    <label class="form-label" for="post_title">Post Title</label>
+                    <input id="post_title" type="text" name="title" class="form-input" value="{{ $post->title }}" required>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label" for="post_category">Category</label>
+                    <select id="post_category" name="category" class="form-input" required>
+                        <option value="">Select a category</option>
+                        <option value="tech" {{ $post->category == 'tech' ? 'selected' : '' }}>Tech</option>
+                        <option value="lifestyle" {{ $post->category == 'lifestyle' ? 'selected' : '' }}>Lifestyle</option>
+                        <option value="education" {{ $post->category == 'education' ? 'selected' : '' }}>Education</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label" for="post_banner">Banner Image</label>
+                    <input id="post_banner" type="file" name="banner" class="form-input" accept="image/*">
+                    <p class="form-help">Optional: Upload a new banner image (JPEG, PNG, GIF up to 2MB)</p>
+                    @if($post->banner)
+                        <div class="mt-4">
+                            <p class="form-help">Current banner:</p>
+                            <img src="{{ $post->banner }}" alt="Current banner" class="mt-2" style="max-height: 200px;">
+                        </div>
+                    @endif
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label" for="post_content">Post Content</label>
+                    <textarea id="post_content" name="content" class="form-input" required rows="10">{{ $post->content }}</textarea>
+                </div>
+
+                <div class="form-group">
+                    <button type="submit" class="btn btn-primary">Update Post</button>
+                </div>
+            </form>
+        </div>
+    </div>
 @endsection
