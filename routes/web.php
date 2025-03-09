@@ -8,9 +8,7 @@ use App\Http\Controllers\LogoutController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\SettingsController;
 
-Route::get('/', function () {
-    return view('home', ['active' => 'home']);
-})->name('home');
+Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 Route::get('/login', [AuthController::class, 'showLoginForm'])->name('login');
 Route::post('/login', [AuthController::class, 'login'])->name('login.submit');
