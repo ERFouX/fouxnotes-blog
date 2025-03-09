@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\Post;
 use Illuminate\Support\Facades\Auth;
 use Carbon\Carbon;
+use Illuminate\Support\Facades\Storage;
 
 class PostController extends Controller
 {
@@ -32,11 +33,19 @@ class PostController extends Controller
         $request->validate([
             'title' => 'required|string|max:255',
             'content' => 'required|string',
+            'banner' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048'
         ]);
 
         $data = $request->all();
         $data['user_id'] = Auth::id();
         $data['date'] = Carbon::now();
+
+        if ($request->hasFile('banner')) {
+            $banner = $request->file('banner');
+            $filename = time() . '_' . $banner->getClientOriginalName();
+            $path = $banner->storeAs('public/banners', $filename);
+            $data['banner'] = Storage::url($path);
+        }
 
         Post::create($data);
         return redirect()->route('posts.index')->with('successful', 'Post created successfully.');

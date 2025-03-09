@@ -14,13 +14,21 @@
     <div class="blog-container">
         <div class="login-card login-padding">
             <h2>Create Post</h2>
-            <form action="{{ route('posts.store') }}" method="POST" class="form login">
+            <form action="{{ route('posts.store') }}" method="POST" class="form login" enctype="multipart/form-data">
                 @csrf
                 <div class="form__field">
                     <label for="post_title">
                         <span class="hidden">Post Title</span>
                     </label>
                     <input id="post_title" type="text" name="title" class="form__input" placeholder="Post Title" required>
+                </div>
+
+                <div class="form__field">
+                    <label for="post_banner">
+                        <span class="hidden">Banner Image</span>
+                    </label>
+                    <input id="post_banner" type="file" name="banner" class="form__input" accept="image/*">
+                    <small class="text-gray-500">Optional: Upload a banner image for your post</small>
                 </div>
 
                 <div class="form__field">
