@@ -50,4 +50,12 @@
     margin-bottom: 5px;
 }
 
-  
+/*Posts*/
+.dashboard-posts-right{
+    width: 75%;
+}
+
+.dashboard-posts-left{
+    width: 25%;
+    padding-right: 1rem;
+}

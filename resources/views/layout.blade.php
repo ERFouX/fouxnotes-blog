@@ -64,7 +64,7 @@
         <div class="sb-container">
         @if (session('successful'))
         <div class="alert alert-success">
-                {{ session('successful') }} <b>{{ Auth::user()->username }}</b>
+                {{ session('successful') }}
             </div>
         @endif
         @if (session('logged_out'))
