@@ -18,7 +18,7 @@
 .dashboard-widget {
     background-color: #1B1A55;
     padding: 1.5rem;
-    margin-bottom: 1.5rem;
+    margin-bottom: 1rem;
     color: #ffffff;
 }
 
@@ -52,20 +52,57 @@
 
 /* Posts Layout */
 .posts-container {
+    margin-top: 1rem;
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-    gap: 1.5rem;
-    padding: 1.5rem;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
 }
 
+.blog-header {
+    padding: 30px;
+    text-align: center;
+    border: 2px solid #535C91;
+    background: #535C91;
+    color: #FFFFFF;
+    margin-bottom: 2rem;
+}
+
+.blog-header h2 {
+    margin: 0;
+    font-size: 40px;
+    font-weight: 700;
+}
+
+.create-post-button {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 2rem;
+}
+
+.create-post-button .btn {
+    background-color: #70A1FF;
+    border: none;
+    padding: 0.75rem 2rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    transition: all 0.3s ease;
+}
+
+.create-post-button .btn:hover {
+    background-color: #4d8aff;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Post Card */
 .post-card {
     background: #1B1A55;
-    overflow: hidden;
-    transition: transform 0.2s ease;
-}
-
-.post-card:hover {
-    transform: translateY(-4px);
+    border: 2px solid #535C91;
+    color: #ffffff;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
 }
 
 .post-card__image {
@@ -76,21 +113,24 @@
 
 .post-card__content {
     padding: 1.5rem;
-    color: #ffffff;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
 }
 
 .post-card__title {
     font-size: 1.25rem;
     font-weight: 600;
-    margin-bottom: 0.75rem;
+    margin-bottom: 1rem;
     color: #ffffff;
 }
 
 .post-card__excerpt {
-    font-size: 0.875rem;
+    font-size: 1rem;
     line-height: 1.5;
     margin-bottom: 1rem;
     color: rgba(255, 255, 255, 0.8);
+    flex-grow: 1;
 }
 
 .post-card__meta {
@@ -99,6 +139,8 @@
     font-size: 0.875rem;
     color: rgba(255, 255, 255, 0.7);
     margin-bottom: 1rem;
+    border-bottom: 1px solid #535C91;
+    padding-bottom: 1rem;
 }
 
 .post-card__meta span {
@@ -109,56 +151,74 @@
 .post-card__meta span:not(:last-child)::after {
     content: "•";
     margin: 0 0.5rem;
-    color: rgba(255, 255, 255, 0.4);
+    color: #535C91;
 }
 
 .post-card__actions {
     display: flex;
     justify-content: flex-end;
-    gap: 0.75rem;
+    gap: 1rem;
     padding-top: 1rem;
-    border-top: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .post-card__actions a, 
-.post-card__actions button {
+.post-card__actions button,
+.blog-header .btn {
     text-decoration: none;
-    padding: 0.5rem 1rem;
+    padding: 0.5rem 1.5rem;
+    min-width: 100px;
+    text-align: center;
     font-size: 0.875rem;
-    transition: opacity 0.2s ease;
+    font-weight: 500;
+    transition: all 0.2s ease;
     background: none;
-    border: none;
+    border: 2px solid #535C91;
+    color: #ffffff;
     cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    line-height: 1.2;
 }
 
 .post-card__actions a.view {
-    color: #70A1FF;
+    border-color: #70A1FF;
 }
 
 .post-card__actions a.edit {
-    color: #7bed9f;
+    border-color: #7bed9f;
 }
 
-.post-card__actions .delete {
-    color: #ff6b81;
+.post-card__actions button.delete {
+    border-color: #ff6b81;
 }
 
-.post-card__actions a:hover,
-.post-card__actions button:hover {
-    opacity: 0.8;
+.post-card__actions a.view:hover {
+    background: #70A1FF;
+}
+
+.post-card__actions a.edit:hover {
+    background: #7bed9f;
+}
+
+.post-card__actions button.delete:hover {
+    background: #ff6b81;
 }
 
 /* Form Styles */
 .form-container {
-    max-width: 800px;
-    margin: 0 auto;
+    max-width: 100%;
+    margin-top: 1rem;
     padding: 2rem;
     background: #1B1A55;
-    color: #ffffff;
+    border: 2px solid #535C91;
 }
 
 .form-group {
     margin-bottom: 1.5rem;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .form-label {
