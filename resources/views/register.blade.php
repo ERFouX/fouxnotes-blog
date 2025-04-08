@@ -22,7 +22,7 @@
                     </svg>
                     <span class="hidden">Username</span>
                 </label>
-                <input autocomplete="username" id="login__username" type="text" name="username" class="form__input" placeholder="Username" required>
+                <input autocomplete="username" id="login__username" type="text" name="username" value="{{ old('username') }}" class="form__input" placeholder="Username" required>
             </div>
             <div class="form__field">
                 <label for="login__email">
@@ -31,7 +31,7 @@
                     </svg>
                     <span class="hidden">Email</span>
                 </label>
-                <input autocomplete="email" id="login__email" type="text" name="email" class="form__input" placeholder="Email" required>
+                <input autocomplete="email" id="login__email" type="text" name="email" value="{{ old('email') }}" class="form__input" placeholder="Email" required>
             </div>
             <div class="form__field">
                 <label for="login__password">
